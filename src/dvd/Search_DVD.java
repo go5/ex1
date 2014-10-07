@@ -17,8 +17,8 @@ import java.util.Scanner;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-			con = DriverManager.getConnection(url, "jointest", "1111");
+			String url = "jdbc:oracle:thin:@192.168.10.21:1521:orcl";
+			con = DriverManager.getConnection(url, "DVD", "1111");
 
 			Scanner sc = new Scanner(System.in);
 			System.out.println("DVD제목 입력 : ");

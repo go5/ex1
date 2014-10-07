@@ -1,13 +1,12 @@
-package customer;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class Search_Customer {
-	public void search_Customer(){
+public class DB1 {
+	public static void main(String[] args) throws ClassNotFoundException {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		String url = "jdbc:oracle:thin:@192.168.10.21:1521:orcl";
 		Connection con = null;
@@ -34,7 +33,8 @@ public class Search_Customer {
 
 				while(rs.next()){
 					if (rs.getString(2).equals(name)){
-						System.out.print(rs.getInt(1)+"\t");
+						System.out.println("고객번호\t고객명\t\t주소\t\t\t나이\t전화번호\t가족\t\t관계");
+						System.out.print(rs.getInt(1)+"\t\t");
 						System.out.print(rs.getString(2)+"\t\t");
 						System.out.print(rs.getString(3)+"\t");
 						System.out.print(rs.getInt(4)+"\t");
@@ -63,7 +63,6 @@ public class Search_Customer {
 			if(stmt != null) try{stmt.close();}catch(Exception err){}
 			if(con != null) try{con.close();}catch(Exception err){}
 		}
-		return;
-		
 	}
 }
+

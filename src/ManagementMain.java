@@ -15,12 +15,12 @@ public class ManagementMain {
 		customer.Search_Customer sc = new Search_Customer();
 
 		while(menu != 0){
-			System.out.println("5Á¶ DVD ´ë¿©Á¡ °ü¸® ÇÁ·Î±×·¥");
+			System.out.println("5ì¡° DVD ëŒ€ì—¬ì  ê´€ë¦¬ í”„ë¡œê·¸ë¨");
 			System.out.println("-----------------------------------");
-			System.out.println("1. DVD ´ë¿©/¹İ³³");
-			System.out.println("2. DVD Á¶È¸");
-			System.out.println("3. °í°´ Á¶È¸");
-			System.out.print("¸Ş´º ¼±ÅÃ(Á¾·á: 0):  ");
+			System.out.println("1. DVD ëŒ€ì—¬/ë°˜ë‚©");
+			System.out.println("2. DVD ì¡°íšŒ");
+			System.out.println("3. ê³ ê° ì¡°íšŒ");
+			System.out.print("ë©”ë‰´ ì„ íƒ(ì¢…ë£Œ: 0):  ");
 			menu=scan.nextInt();
 
 			switch (menu) {
@@ -37,11 +37,11 @@ public class ManagementMain {
 				System.out.println();
 				break;
 			case 0:
-				System.out.println("½Ã½ºÅÛÀ» Á¾·áÇÕ´Ï´Ù.");
+				System.out.println("ì‹œìŠ¤í…œì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				System.exit(0);
 				break;
 			default : 
-				System.out.println("Àß¸øµÈ ¸í·ÉÀÔ´Ï´Ù. ");
+				System.out.println("ì‹œìŠ¤í…œì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				System.out.println();
 			}
 		}

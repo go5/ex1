@@ -1,12 +1,13 @@
+package customer;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class DB1 {
-	public static void main(String[] args) throws ClassNotFoundException {
+public class Search_Customer {
+	public void search_Customer(){
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		String url = "jdbc:oracle:thin:@192.168.10.21:1521:orcl";
 		Connection con = null;
@@ -66,6 +67,7 @@ public class DB1 {
 			if(stmt != null) try{stmt.close();}catch(Exception err){}
 			if(con != null) try{con.close();}catch(Exception err){}
 		}
+		return;
+		
 	}
 }
-

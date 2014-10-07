@@ -20,7 +20,7 @@ public class Search_Customer {
 		try{
 			con = DriverManager.getConnection(url, "dvd","1111"); 
 			Scanner scan = new Scanner(System.in);
-			//while(true){
+			while(true){
 				System.out.println("고객조회창");
 				System.out.print("전화번호조회 : ");
 				String phone_num = scan.next();
@@ -55,7 +55,7 @@ public class Search_Customer {
 						System.out.println("검색된 고객이 없습니다.");
 					}
 				}
-			//}
+			}
 		}
 		catch(Exception err){
 			err.printStackTrace();

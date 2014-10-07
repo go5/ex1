@@ -21,7 +21,7 @@ import java.util.Scanner;
 			con = DriverManager.getConnection(url, "jointest", "1111");
 
 			Scanner sc = new Scanner(System.in);
-			System.out.println("DVDÁ¦¸ñ ÀÔ·Â : ");
+			System.out.println("DVDì œëª© ì…ë ¥ : ");
 			String title = sc.next();
 
 			String sql = "SELECT * FROM dvd WHERE title=?";
@@ -32,18 +32,19 @@ import java.util.Scanner;
 
 			while (rs.next()) {
 				System.out.println("DVD ID : \t" + rs.getInt("dvd_id"));
-				System.out.println("Å¸ÀÌÆ² : \t" + rs.getString("title"));
-				System.out.println("Àå¸£ : \t" + rs.getString("genre"));
-				System.out.println("³ªÀÌÁ¦ÇÑ : \t" + rs.getInt("allowed_age"));
-				System.out.println("Ãâ½Ã³¯Â¥ : \t" + rs.getDate("release_date"));
+				System.out.println("íƒ€ì´í‹€ : \t" + rs.getString("title"));
+				System.out.println("ì¥ë¥´ : \t" + rs.getString("genre"));
+				System.out.println("ë‚˜ì´ì œí•œ : \t" + rs.getInt("allowed_age"));
+				System.out.println("ì¶œì‹œë‚ ì§œ : \t" + rs.getDate("release_date"));
 				if (rs.getString("rent_flag").equals("n")) {
-					System.out.println("´ë¿©¿©ºÎ : \t" + "´ë¿© °¡´É");
+					System.out.println("ëŒ€ì—¬ì—¬ë¶€ : \t" + "ëŒ€ì—¬ ê°€ëŠ¥");
 				} else if (rs.getString("rent_flag").equals("y")) {
-					System.out.println("´ë¿©¿©ºÎ : \t" + "´ë¿© ºÒ°¡");
+					System.out.println("ëŒ€ì—¬ì—¬ë¶€ : \t" + "ëŒ€ì—¬ ë¶ˆê°€");
 				}
-				System.out.println("°Å·¡Ã³¹øÈ£ : " + rs.getInt("vendor_id"));
+				System.out.println("ê±°ë˜ì²˜ë²ˆí˜¸ : " + rs.getInt("vendor_id"));
 
 			}
+
 
 		} catch (Exception e) {
 			e.printStackTrace();

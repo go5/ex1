@@ -63,7 +63,7 @@ public class ObjectDB1{
 			stmt.setString(3, job);*/
 			
 			stmt.executeUpdate();
-			System.out.println("들록되었습니다.");
+			System.out.println("등록되었습니다.");
 
 			
 			

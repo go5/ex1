@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Search_Customer {
 	public void search_Customer(){
-		Class.forName("oracle.jdbc.driver.OracleDriver");
+
 		String url = "jdbc:oracle:thin:@192.168.10.21:1521:orcl";
 		Connection con = null;
 		Statement stmt = null;
@@ -18,6 +18,7 @@ public class Search_Customer {
 		ResultSet frs = null;
 		String fsql;
 		try{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, "dvd","1111"); 
 			Scanner scan = new Scanner(System.in);
 			System.out.println("고객조회창");

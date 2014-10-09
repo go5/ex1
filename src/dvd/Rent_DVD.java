@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Rent_DVD {
 
-	public static void rent_DVD() {
+	public void rent_DVD() {
 		Connection con = null;
 
 		PreparedStatement stmtRent = null; // DVD 렌트
@@ -31,21 +31,22 @@ public class Rent_DVD {
 		String getDvd = null; // dvd 대여 여부 확인 변수
 		String getCus = null; // 고객 null확인용 변수
 		String getcusCnt = null; // 고객 대여 한도 확인 변수
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		try {
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-			con = DriverManager.getConnection(url, "jointest", "1111");
+			String url = "jdbc:oracle:thin:@192.168.10.21:1521:orcl";
+			con = DriverManager.getConnection(url, "dvd", "1111");
 
 			// 고객아이디 null값 조회
 			System.out.println("************* DVD대여 *************\n");
 			System.out.println("고객ID를 조회하세요");
 			String cusID = sc.next();
 
-			getCus = "SELECT cus_id FROM cu WHERE cus_id=?";
+			getCus = "SELECT cus_id FROM MEMBER WHERE cus_id=?";
 			stmtgetCus = con.prepareStatement(getCus);
 			stmtgetCus.setString(1, cusID);
 			rsgetCus = stmtgetCus.executeQuery();

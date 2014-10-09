@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class Search_Customer {
+	@SuppressWarnings("resource")
 	public void search_Customer(){
-
 		String url = "jdbc:oracle:thin:@192.168.10.21:1521:orcl";
 		Connection con = null;
 		Statement stmt = null;
@@ -17,6 +17,7 @@ public class Search_Customer {
 		Statement fstmt = null;
 		ResultSet frs = null;
 		String fsql;
+		
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, "dvd","1111"); 
@@ -25,16 +26,20 @@ public class Search_Customer {
 			System.out.print("전화번호조회 : ");
 			String phone_num = scan.next();
 
-			sql = "SELECT * FROM member"; //WHERE phone_num LIKE '"+phone_num+"$'";
+			sql = "SELECT * FROM member"; 
 			stmt = con.createStatement(); 
 			rs = stmt.executeQuery(sql);
+			
 			fsql = "SELECT * FROM family";
 			fstmt = con.createStatement(); 
 			frs = fstmt.executeQuery(fsql);
+			
+			
 
 			while(rs.next()){
 				if (rs.getString(5).equals(phone_num)){
 					System.out.println("고객번호\t고객명\t\t주소\t\t나이\t전화번호\t가족(관계)");
+					int id = rs.getInt(1);
 					System.out.print(rs.getInt(1)+"\t\t");
 					System.out.print(rs.getString(2)+"\t\t");
 					System.out.print(rs.getString(3)+"\t\t");
@@ -49,10 +54,25 @@ public class Search_Customer {
 							break;
 					}
 
-					System.out.println("");
+					System.out.println();
+					//대여 이력 떠야 함. 
+					sql = "SELECT * FROM managerdvd WHERE cus_id = "+id; 
+					stmt = con.createStatement(); 
+					rs = stmt.executeQuery(sql);
+					System.out.println("대여 이력");
+					System.out.println("비디오 타이틀 \t\t 대여 일자 \t\t반납일자");
+					while(rs.next()){
+						System.out.print(rs.getString("title")+"\t\t");
+						System.out.print(rs.getString("rent_date")+"\t\t");
+						System.out.print(rs.getString("return_date"));
+						System.out.println();
+					}
+					return;
+					
 				}
 				else {
 					System.out.println("검색된 고객이 없습니다.");
+					return; //회원 수만큼 에러나는 거니까 이 부분만 추가하면 될 듯.? 테스트 필요.
 				}
 			}
 		}

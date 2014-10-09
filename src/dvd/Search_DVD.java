@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
- class Search_DVD {
+public class Search_DVD {
 
-	public static void scdvd() {
+	public void scdvd() {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -20,6 +20,7 @@ import java.util.Scanner;
 			String url = "jdbc:oracle:thin:@192.168.10.21:1521:orcl";
 			con = DriverManager.getConnection(url, "DVD", "1111");
 
+			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
 			System.out.println("DVD제목 입력 : ");
 			String title = sc.next();
@@ -31,14 +32,16 @@ import java.util.Scanner;
 			rs = stmt.executeQuery();
 
 			while (rs.next()) {
+				
+				System.out.println("-------------------------------------");
 				System.out.println("DVD ID : \t" + rs.getInt("dvd_id"));
 				System.out.println("타이틀 : \t" + rs.getString("title"));
 				System.out.println("장르 : \t" + rs.getString("genre"));
 				System.out.println("나이제한 : \t" + rs.getInt("allowed_age"));
 				System.out.println("출시날짜 : \t" + rs.getDate("release_date"));
-				if (rs.getString("rent_flag").equals("n")) {
+				if (rs.getString("rent_flag").equals("Y")) {
 					System.out.println("대여여부 : \t" + "대여 가능");
-				} else if (rs.getString("rent_flag").equals("y")) {
+				} else if (rs.getString("rent_flag").equals("N")) {
 					System.out.println("대여여부 : \t" + "대여 불가");
 				}
 				System.out.println("거래처번호 : " + rs.getInt("vendor_id"));

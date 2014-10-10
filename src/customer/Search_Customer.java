@@ -26,7 +26,7 @@ public class Search_Customer {
 			System.out.print("전화번호조회 : ");
 			String phone_num = scan.next();
 
-			sql = "SELECT * FROM member WHERE phone_num ="+phone_num; 
+			sql = "SELECT * FROM member WHERE phone_num ='"+phone_num+"'"; 
 			stmt = con.createStatement(); 
 			rs = stmt.executeQuery(sql);
 

@@ -67,6 +67,7 @@ public class Search_Customer {
 					System.out.print(rrs.getString("return_date"));
 					System.out.println();
 				}
+				System.out.println("-------------------------------------------");
 		//		System.out.println("검색 종료");
 				//break;
 
@@ -81,7 +82,6 @@ public class Search_Customer {
 		err.printStackTrace();
 	}
 	finally{
-		System.out.println("-------------------------------------------");
 		if(frs != null) try{frs.close();}catch(Exception err){}
 		if(rs != null) try{rs.close();}catch(Exception err){}
 		if(fstmt != null) try{fstmt.close();}catch(Exception err){}

@@ -22,6 +22,7 @@ public class ManageMain {
 		customer.Search_Customer sc = new Search_Customer();
 		customer.Full_Search_Customer fsc = new Full_Search_Customer();
 		customer.Insert_Customer ic = new Insert_Customer();
+		customer.Insert_Family iff = new Insert_Family();
 		
 		while(menu != 0){
 			System.out.println("======================");
@@ -29,18 +30,19 @@ public class ManageMain {
 			System.out.println("-----------------------------------");
 			System.out.println("1. DVD 대여");//영문. 완료
 			System.out.println("2. DVD 반납");//진현, 완료
-			System.out.println("3. DVD 대여현황");//영준. 테스트 필요.
-			System.out.println("4. DVD 대여 이력 조회/관리");//영준. 테스트 필요
+			System.out.println("3. DVD 대여현황");//영준. 완료
+			System.out.println("4. DVD 대여 이력 조회/관리");//영준. 완료
 			System.out.println("-----------------------------------");
 			System.out.println("5. DVD 전체목록"); //영준, 완료
 			System.out.println("6. DVD 정보 상세 조회");//영문, 완료
 			System.out.println("-----------------------------------");
 			System.out.println("7. 회원 전체목록");//영준. 완료
-			System.out.println("8. 회원 정보 상세 조회");//택훈, 완료  조회 안되면 에러 여러개 뜸. 수정했고,  대여이력도 뜨게 함.  테스트 필요
+			System.out.println("8. 회원 정보 상세 조회");//택훈, 동일 전번 출력안됨.
 			System.out.println("-----------------------------------");
 			System.out.println("9. DVD 입력");//홍식. 완료
-			System.out.println("10. 회원 입력"); //회원: 홍식+가족: 영준  완료.
-			System.out.print("메뉴 선택(종료: 0):  ");
+			System.out.println("10. 회원 추가"); //회원: 홍식+가족: 영준  완료.
+			System.out.println("11.기존 회원 가족멤버 추가");//영준. 완료
+			System.out.print("메뉴 선택(종료: 99):  ");
 			menu=scan.nextInt();
 
 			switch (menu) {
@@ -84,7 +86,14 @@ public class ManageMain {
 				ic.insert_Customer();
 				System.out.println();
 				break;
-			case 0:
+			case 11:
+				int input=0;
+				System.out.println("가족을 추가할 id를 입력하세요");
+				input=scan.nextInt();
+				iff.insert_family(input);
+				System.out.println();
+				break;
+			case 99:
 				System.out.println("시스템을 종료합니다.");
 				System.exit(0);
 				break;

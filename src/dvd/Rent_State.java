@@ -26,6 +26,7 @@ public class Rent_State {
 			System.out.print(rs.getString("title")+"\t\t");
 			System.out.print(rs.getInt("cus_id")+"\t\t\t ");
 			System.out.print(rs.getString("rent_date")+"\t ");
+			System.out.prinln("");
 		}
 	
 	
